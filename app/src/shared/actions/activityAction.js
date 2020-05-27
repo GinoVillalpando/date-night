@@ -16,6 +16,5 @@ export const getActivityByActivityTitle = (activityTitle) => async (dispatch) =>
 };
 
 export const filterActivitiesByFavorites = (favorites) => dispatch => {
-	console.log(favorites)
 	dispatch({type: "FILTER_ACTIVITIES_BY_FAVORITES", payload: favorites})
 };

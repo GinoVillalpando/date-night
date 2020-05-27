@@ -6,8 +6,8 @@ export const FavoriteCard = ({activity}) => {
 	return (
 		<>
 
-			<Card className="m-3" style={{width: '50rem'}}>
-				<Card.Img style={{height: '25rem'}} variant="top" src={activity.activityImageUrl} />
+			<Card className="m-3 col-lg-2 col-12">
+				<Card.Img variant="top" src={activity.activityImageUrl} />
 				<h4 className="text-center bg-dark text-white">{activity.activityTitle}</h4>
 				<Card.Body>
 					<Card.Link href={activity.activityLink} target="_blank">Click here to View more details.</Card.Link>

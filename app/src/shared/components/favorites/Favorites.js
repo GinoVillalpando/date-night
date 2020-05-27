@@ -8,11 +8,8 @@ import {filterActivitiesByFavorites, getAllActivities} from "../../actions/activ
 import {FavoriteFilter} from "./FavoriteFilter";
 export const Favorites = (props) => {
 
-	const {match} = props;
 	// use selector to set favorites to users stored in state
 	const favorites = useSelector(state => (state.favorites ? state.favorites : []));
-
-	console.log(match)
 
 	// use dispatch from redux to dispatch actions
 	const dispatch = useDispatch();
@@ -20,7 +17,7 @@ export const Favorites = (props) => {
 	// get favorites
 	const effects = () => {
 
-		dispatch(getFavoritesByCurrentLoggedInUser())
+		dispatch(getFavoritesByCurrentLoggedInUser(favorites.favoriteId))
 
 	};
 
@@ -42,7 +39,7 @@ export const Favorites = (props) => {
 	return (
 		<>
 			{console.log(favorites)}
-			{favorites.length && <FavoriteFilter favorites={favorites}/> }
+			<FavoriteFilter favorites={favorites}/> 
 
 
 	</>

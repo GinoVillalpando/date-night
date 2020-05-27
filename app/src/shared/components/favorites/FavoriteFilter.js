@@ -32,9 +32,11 @@ export const FavoriteFilter = ({favorites}) => {
 				<h1 className="text-center">Favorites</h1>
 			</Jumbotron>
 
-			<main>
-				<div className="card-group card-columns">
+			<main className="container-fluid">
+				<div className="row d-lg-flex justify-content-center align-items-top">
+					{/* <div className="row d-lg-none d-md-flex"> */}
 					{activities.map(activity => <FavoriteCard activity={activity} key={activity.activityId}/>)}
+					{/* </div> */}
 				</div>
 			</main>
 
