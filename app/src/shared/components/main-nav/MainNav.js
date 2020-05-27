@@ -4,29 +4,31 @@ import Nav from "react-bootstrap/Nav";
 import {LinkContainer} from "react-router-bootstrap"
 import {SignUpModal} from "./sign-up/SignUpModal";
 import {SignInModal} from "./sign-in/SignInModal";
-import {UseJwt} from "../../utils/JwtHelpers";
-import {httpConfig} from "../../utils/http-config";
 // import {ProfileModal} from "./profile/ProfileModal";
+import {UseJwt} from "../../utils/JwtHelpers";
+import {httpConfig} from "../../utils/http-config"
 
-const loggedIn=window.localStorage.getItem("jwt-token")
+
 
 export const MainNav = (props) => {
-	const jwt=UseJwt();
+
+	const jwt = UseJwt();
 
 	const signOut = () => {
 		httpConfig.get("apis/sign-out/")
-			.then(reply =>{
-				if (reply.status === 200){
+			.then(reply => {
+				if (reply.status === 200) {
 					window.localStorage.removeItem("jwt-token");
-					setTimeout(()=>{
+					console.log(reply);
+					setTimeout(() => {
 						window.location.reload();
-					},1500);
+					}, 1500);
 				}
 			});
 	};
 
 	return(
-		<Navbar fixed="top" bg="primary" variant="dark">
+		<Navbar bg="primary" variant="dark">
 			<LinkContainer exact to="/" >
 				<Navbar.Brand>Navbar</Navbar.Brand>
 			</LinkContainer>
@@ -35,16 +37,17 @@ export const MainNav = (props) => {
 				<SignUpModal/>
 				<SignInModal/>
 				{jwt !== null &&
-				<LinkContainer exact to="/Favorites"
-				><Nav.Link>Favorites</Nav.Link>
+				<LinkContainer exact to="/favorites" >
+					<Nav.Link>Favorites</Nav.Link>
 				</LinkContainer>
 				}
 				{jwt !== null &&
 					<Nav.Item onClick={signOut}
-								 className="btn"
-					>Sign Out</Nav.Item>
+					className="btn"
+					>
+						Sign Out
+					</Nav.Item>
 				}
-
 			</Nav>
 		</Navbar>
 	)

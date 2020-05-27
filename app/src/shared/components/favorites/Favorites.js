@@ -6,10 +6,13 @@ import * as jwtDecode from "jwt-decode";
 import {FavoriteCard} from "./FavoriteCard"
 import {filterActivitiesByFavorites, getAllActivities} from "../../actions/activityAction";
 import {FavoriteFilter} from "./FavoriteFilter";
-export const Favorites = () => {
+export const Favorites = (props) => {
 
+	const {match} = props;
 	// use selector to set favorites to users stored in state
-	const favorites = useSelector(state => state.favorites ? state.favorites : []);
+	const favorites = useSelector(state => (state.favorites ? state.favorites : []));
+
+	console.log(match)
 
 	// use dispatch from redux to dispatch actions
 	const dispatch = useDispatch();
@@ -38,6 +41,7 @@ export const Favorites = () => {
 // console.log(activities)
 	return (
 		<>
+			{console.log(favorites)}
 			{favorites.length && <FavoriteFilter favorites={favorites}/> }
 
 
