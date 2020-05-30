@@ -16,32 +16,19 @@ export const Favorites = (props) => {
 
 	// get favorites
 	const effects = () => {
-
 		dispatch(getFavoritesByCurrentLoggedInUser(favorites.favoriteId))
-
 	};
 
 	// set inputs to an empty array before update
-	const inputs = [];
+	const inputs = [favorites.favoriteId];
 
 	// do this effect on component update
 	useEffect(effects, inputs);
-// 	console.log(activities)
-//
-// console.log(favorites)
-// 	let favoriteActivities=[]
-//
-// 	favorites.forEach(favorite=>{
-// 		favoriteActivities=[...favoriteActivities, activities.filter(activity=>activity.activityId===favorite.favoriteActivityId)]
-// 	})
-// console.log(favoriteActivities)
-// console.log(activities)
+
 	return (
 		<>
 			{console.log(favorites)}
 			<FavoriteFilter favorites={favorites}/> 
-
-
 	</>
 	)
 }

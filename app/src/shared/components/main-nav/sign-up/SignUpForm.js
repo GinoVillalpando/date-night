@@ -13,7 +13,7 @@ export const SignUpForm = ({handleClose}) => {
 		profilePasswordConfirm: ""
 	};
 
-	const [status, setStatus] = useState(null);
+	
 	const validator = Yup.object().shape({
 		profileEmail: Yup.string()
 			.email("email must be a valid email")
@@ -35,9 +35,10 @@ export const SignUpForm = ({handleClose}) => {
 
 					if(reply.status === 200) {
 						handleClose();
-					}
-					alert (message);
-					setStatus({message, type});
+					}else {
+						alert("You may already have an account or your password does not match");
+						resetForm();
+					} setStatus({message, type});
 				}
 			);
 	};

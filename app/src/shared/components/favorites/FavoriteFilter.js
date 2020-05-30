@@ -8,7 +8,7 @@ import {FavoriteCard} from "./FavoriteCard";
 export const FavoriteFilter = ({favorites}) => {
 
 	// use selector to set favorites to users stored in state
-	const activities = useSelector(state => state.activities ? state.activities : []);
+	const activities = useSelector(state => (state.activities ? state.activities : []));
 
 	// use dispatch from redux to dispatch actions
 	const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export const FavoriteFilter = ({favorites}) => {
 			</Jumbotron>
 
 			<main className="container-fluid">
-				<div className="row d-lg-flex justify-content-center align-items-top">
+				<div className="row d-flex justify-content-center align-items-top">
 					{/* <div className="row d-lg-none d-md-flex"> */}
 					{activities.map(activity => <FavoriteCard activity={activity} key={activity.activityId}/>)}
 					{/* </div> */}

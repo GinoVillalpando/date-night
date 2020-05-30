@@ -23,7 +23,6 @@ const Routing = (store) => (
 	<>
 		<Provider store={store}>
 		<BrowserRouter>
-			<Container>
 			<MainNav/>
 			<Switch>
 				<Route exact path="/" component={Home}/>
@@ -31,7 +30,6 @@ const Routing = (store) => (
 				<Route component={FourOhFour}/>
 			</Switch>
 			<Footer/>
-			</Container>
 		</BrowserRouter>
 		</Provider>
 

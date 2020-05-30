@@ -28,27 +28,30 @@ export const MainNav = (props) => {
 	};
 
 	return(
-		<Navbar bg="primary" variant="dark">
-			<LinkContainer exact to="/" >
-				<Navbar.Brand>Navbar</Navbar.Brand>
-			</LinkContainer>
-			<Nav className="mr-auto">
-				{/*<ProfileModal/>*/}
-				<SignUpModal/>
-				<SignInModal/>
-				{jwt !== null &&
-				<LinkContainer exact to="/favorites" >
-					<Nav.Link>Favorites</Nav.Link>
-				</LinkContainer>
-				}
-				{jwt !== null &&
-					<Nav.Item onClick={signOut}
-					className="btn"
-					>
-						Sign Out
-					</Nav.Item>
-				}
-			</Nav>
-		</Navbar>
+			<>
+				<Navbar bg="primary" variant="dark">
+					<LinkContainer exact to="/" >
+						<Navbar.Brand>Navbar</Navbar.Brand>
+					</LinkContainer>
+					<Nav className="mr-auto">
+						{/*<ProfileModal/>*/}
+						{ jwt !== null ? 
+						<br/> : <SignInModal/>}
+						{ jwt !== null ? <br/> : <SignUpModal/>}
+
+						{jwt !== null &&
+						<LinkContainer exact to="/favorites" >
+							<Nav.Link>Favorites</Nav.Link>
+						</LinkContainer>
+						}
+						{jwt !== null &&
+							<Nav.Link onClick={signOut}
+							>
+								Sign Out
+							</Nav.Link>
+						}
+					</Nav>
+				</Navbar>
+			</>
 	)
 };

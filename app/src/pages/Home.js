@@ -26,8 +26,7 @@ export const Home = () => {
 
 	return (
 		<>
-			<h1>Home</h1>
 			{activities.length && <Activity activities={activities}/>}
-	</>
+		</>
 	)
 }
