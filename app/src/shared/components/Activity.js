@@ -23,13 +23,14 @@ export const Activity = ({activities}) => {
       headers: headers
     })
       .then(reply => {
-        let {message, type} = reply;
-        // setStatus({message, type});
+        let replyMessage = () => {
+          alert(reply.message)
+        } 
         if(reply.status === 200) {
 			history.push("/")
-          alert("Added to Favorites")
+          replyMessage();
         } else {
-          console.log("didn't work")
+          replyMessage();
         };
       });
   };

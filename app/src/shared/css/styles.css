@@ -9,6 +9,7 @@
     .home-card {
         max-width: 25%!important;
         max-height: 25%!important;
+        padding: 5rem!important
     }
 }
 
